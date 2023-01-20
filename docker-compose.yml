@@ -1,0 +1,19 @@
+# Use this file to create a custom app template in Portainer
+version: '2'
+services:
+  homebridge:
+    image: gcr.io/artem-gcloud/homebridge-bt-rpi:1.6.0
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      - ENABLE_AVAHI=0
+      - TZ=America/Toronto
+    volumes:
+      - homebridge:/homebridge
+    logging:
+      driver: json-file
+      options:
+        max-size: "10mb"
+        max-file: "1"
+volumes:
+  homebridge:
