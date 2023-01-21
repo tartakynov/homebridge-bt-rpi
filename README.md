@@ -3,7 +3,7 @@
 This repository contains scripts and instructions for building HomeBridge docker image to run on a Raspberry Pi. The image is based on [oznu/homebridge](https://hub.docker.com/r/oznu/homebridge) and includes the following additional features:
 
 - Installs Bluetooth libraries
-- Bakes HomeBridge itself and [homebridge-mi-flower-care](https://github.com/honkmaster/homebridge-mi-flower-care) plugin into the image, because installing them on Raspberry Pi takes forever. The original docker image installs HomeBridge at runtime during the first run.
+- Bakes HomeBridge itself with specified plugins into the image, because installing them on Raspberry Pi takes forever. The original docker image installs HomeBridge at runtime during the first run.
 
 The goal of this repo is to build the image that is ready to run from the go.
 
