@@ -1,10 +1,13 @@
 FROM oznu/homebridge:2023-01-08
 
-RUN set -x \
-  && apt-get update \
-  && apt-get -y install bluetooth bluez libbluetooth-dev libudev-dev \
-  && apt-get clean \
-  && rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
+ARG ADDITIONAL_APT_PACKAGES
+RUN if [ "${ADDITIONAL_APT_PACKAGES}" ]; then \
+  set -x \
+    && apt-get update \
+    && apt-get -y install ${ADDITIONAL_APT_PACKAGES} \
+    && apt-get clean \
+    && rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*; \
+fi
 
 ARG HOMEBRIDGE_VERSION
 RUN set -x && npm --prefix /homebridge install --save homebridge@${HOMEBRIDGE_VERSION}

@@ -2,4 +2,4 @@
 
 source source.sh
 
-docker run --rm -it --entrypoint bash --platform=linux/arm64 ${REGISTRY}${IMAGE_TAG}
+docker run --rm -it --entrypoint bash --platform="${TARGET_PLATFORM}" "${REGISTRY}${IMAGE_TAG}"

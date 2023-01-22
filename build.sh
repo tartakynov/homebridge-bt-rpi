@@ -2,12 +2,13 @@
 
 source source.sh
 
-# build the docker image for linux/arm64 platform
+# build the docker image
 docker buildx build \
   --tag ${REGISTRY}${IMAGE_TAG} \
+  --build-arg ADDITIONAL_APT_PACKAGES="${ADDITIONAL_APT_PACKAGES}" \
   --build-arg HOMEBRIDGE_VERSION="${HOMEBRIDGE_VERSION}" \
   --build-arg HOMEBRIDGE_PLUGINS="${HOMEBRIDGE_PLUGINS}" \
-  --platform linux/arm64 \
+  --platform ${TARGET_PLATFORM} \
   --output type=docker .
 
 # push to the remote registry if specified

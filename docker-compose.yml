@@ -2,7 +2,7 @@
 version: '2'
 services:
   homebridge:
-    image: gcr.io/artem-gcloud/homebridge-bt-rpi:1.6.0
+    image: gcr.io/artem-gcloud/homebridge:1.6.0
     restart: unless-stopped
     network_mode: host
     environment:
