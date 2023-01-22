@@ -4,7 +4,8 @@ source source.sh
 
 # build the docker image
 docker buildx build \
-  --tag ${REGISTRY}${IMAGE_TAG} \
+  --tag "${IMAGE_TAG}" \
+  --tag "${REGISTRY}${IMAGE_TAG}" \
   --build-arg ADDITIONAL_APT_PACKAGES="${ADDITIONAL_APT_PACKAGES}" \
   --build-arg HOMEBRIDGE_VERSION="${HOMEBRIDGE_VERSION}" \
   --build-arg HOMEBRIDGE_PLUGINS="${HOMEBRIDGE_PLUGINS}" \
@@ -12,7 +13,7 @@ docker buildx build \
   --output type=docker .
 
 # push to the remote registry if specified
-if [ $REGISTRY ]; then
+if [ "${REGISTRY}" ]; then
   docker push ${REGISTRY}${IMAGE_TAG}
 fi
 
