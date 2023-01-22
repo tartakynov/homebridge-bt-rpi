@@ -12,9 +12,9 @@ HOMEBRIDGE_VERSION=1.6.0
 # comment out this variable if you don't want to bake plugins into the image
 HOMEBRIDGE_PLUGINS="homebridge-mi-flora-care homebridge-tplink-smarthome"
 
-# # uncomment this variable if you want to push the image to a remote registry
-# # and change its value to your own. The value has to end with a forward slash (/)
-# REGISTRY="localhost:5000/"
+# comment out this variable if you don't want to push the image to a remote
+# registry. The value of this variable has to end with a forward slash (/)
+REGISTRY="my-self-hosted-docker-registry:5000/"
 
 IMAGE_TAG="homebridge-standalone:${HOMEBRIDGE_VERSION}"
 

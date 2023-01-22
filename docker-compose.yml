@@ -2,7 +2,7 @@
 version: '2'
 services:
   homebridge:
-    image: homebridge-standalone:1.6.0
+    image: my-self-hosted-docker-registry:5000/homebridge-standalone:1.6.0
     restart: unless-stopped
     network_mode: host
     environment:
